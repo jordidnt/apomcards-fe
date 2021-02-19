@@ -40,3 +40,17 @@ export async function startGame(gameId: string) {
 
     return data as StartGameData;
 }
+
+interface submissionReadData {
+
+}
+
+export async function markSubmissionRead(gameId: string, roundId: string, submissionId: string) {
+    const { data } = await api.post('/submissions', {
+        gameId,
+        roundId,
+        submissionId,
+    });
+
+    return data as submissionReadData;
+}
